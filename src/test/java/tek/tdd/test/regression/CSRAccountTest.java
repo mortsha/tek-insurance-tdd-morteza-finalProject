@@ -11,7 +11,6 @@ public class CSRAccountTest extends UIBaseClass {
         clickOnElement(homePage.loginLink);
         signInPage.loginToCSRAccount();
         clickOnElement(customerPortalPage.accountsLink);
-        extentInfo("Login with CSR Credentials and click on account link");
     }
 
     @Test(testName = "CSR Account - validate default account row")

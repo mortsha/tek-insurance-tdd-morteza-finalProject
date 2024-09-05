@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tek.tdd.base.UIBaseClass;
 import tek.tdd.utility.JavaUtilities;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -13,6 +14,7 @@ public class CreateAccountTest extends UIBaseClass {
 
     private String emailToUse;
     private String fullName;
+    protected static String usernameCreatedAccount;
 
     public void navigateToCreateAccountPageValidateTitle() {
         clickOnElement(homePage.createPrimaryAccountLink);
@@ -56,15 +58,15 @@ public class CreateAccountTest extends UIBaseClass {
 
     @Test(testName = "Create Account - Story5")
     public void createNewAccountE2EValidation() {
-        String firstName = "David";
-        String lastName = "Lur";
+        String firstName = JavaUtilities.getFirstName();
+        String lastName = JavaUtilities.getLastName();
         fullName = firstName + "." + lastName;
         emailToUse = JavaUtilities.getRandomEmail(fullName);
-        String employmentStatus = "tester";
-        String gender = "Male";
+        String employmentStatus = JavaUtilities.getEmploymentStatus();
+        String gender = JavaUtilities.getGender();
         String maritalStatus = "Single";
-        String prefix = "Mr.";
-        String dob = "28/11/1996";
+        String prefix = JavaUtilities.getPrefix();
+        String dob = JavaUtilities.getDOB();
 
         fillTheCreatePrimaryAccountForm(firstName, lastName, emailToUse, employmentStatus, gender, maritalStatus, prefix, dob);
 
@@ -73,9 +75,9 @@ public class CreateAccountTest extends UIBaseClass {
 
         String actualEmailCreated = getElementText(signUpPage.emailCreatedOnSignUp);
         Assert.assertEquals(actualEmailCreated, emailToUse, "Email in sign up page should match");
-        String username = emailToUse.substring(0, emailToUse.indexOf('@'));
+        usernameCreatedAccount = emailToUse.substring(0, emailToUse.indexOf('@'));
 
-        signUpPage.signUpWithCredentials(username, "Password123");
+        signUpPage.signUpWithCredentials(usernameCreatedAccount, "Password123");
 
         //redirect to sign in page
         waitTime(2);
@@ -83,7 +85,7 @@ public class CreateAccountTest extends UIBaseClass {
         String actualSignInText = getElementText(signInPage.signInAccountHeader);
         Assert.assertEquals(actualSignInText, "Sign in to your Account", "Sign in account header should match");
 
-        signInPage.singInCredentials(username, "Password123");
+        signInPage.singInCredentials(usernameCreatedAccount, "Password123");
         String actualHeaderTitle = getElementText(primaryAccountPage.accountHeaderTitle);
         Assert.assertEquals(actualHeaderTitle, "Primary Account Portal", "Header account title should match");
 
@@ -96,23 +98,23 @@ public class CreateAccountTest extends UIBaseClass {
         clickOnElement(profilePage.closeButton);
         clickOnElement(primaryAccountPage.settingLink);
         // validating user information in settings
-        String actualUserFullName = getElementText(settings.userFullName);
+        String actualUserFullName = getElementText(settingsPage.userFullName);
         String expectedUserFullName = prefix + " " + firstName + " " + lastName;
         Assert.assertEquals(actualUserFullName, expectedUserFullName, "Both User full name in setting should match");
 
-        String actualEmail = getElementText(settings.userEmailAddress);
+        String actualEmail = getElementText(settingsPage.userEmailAddress);
         Assert.assertEquals(actualEmail, emailToUse, "Both User email in settings should match");
 
-        String actualGender = getElementText(settings.userGender);
+        String actualGender = getElementText(settingsPage.userGender);
         Assert.assertEquals(actualGender, gender, "Both gender in setting should match");
 
-        String actualMS = getElementText(settings.userMaritalStatus);
+        String actualMS = getElementText(settingsPage.userMaritalStatus);
         Assert.assertEquals(actualMS, maritalStatus, "Both marital status in setting should match");
 
-        String actualES = getElementText(settings.userEmploymentStatus);
+        String actualES = getElementText(settingsPage.userEmploymentStatus);
         Assert.assertEquals(actualES, employmentStatus, "Both employment status in setting should match");
 
-        String actualDOB = getElementText(settings.userDOB);
+        String actualDOB = getElementText(settingsPage.userDOB);
         try {
             DateTimeFormatter actualFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
             LocalDate actualDate = LocalDate.parse(actualDOB, actualFormatter);

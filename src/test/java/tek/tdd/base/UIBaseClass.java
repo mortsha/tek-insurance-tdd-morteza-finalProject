@@ -14,7 +14,6 @@ import org.testng.annotations.Listeners;
 import tek.tdd.page.*;
 import tek.tdd.utility.JavaUtilities;
 import tek.tdd.utility.SeleniumUtility;
-
 import java.time.format.DateTimeFormatter;
 
 @Listeners({ExtentITestListenerClassAdapter.class})
@@ -31,7 +30,10 @@ public class UIBaseClass extends SeleniumUtility {
     public CustomerPortalPage customerPortalPage;
     public PlansPage plansPage;
     public AccountsPage accountsPage;
-    public Settings settings;
+    public SettingsPage settingsPage;
+    public AddAddressPage addAddressPage;
+    public AddPhonePage addPhonePage;
+    public AddCarPage addCarPage;
 
 
     @BeforeMethod
@@ -47,7 +49,10 @@ public class UIBaseClass extends SeleniumUtility {
         customerPortalPage = new CustomerPortalPage();
         plansPage = new PlansPage();
         accountsPage = new AccountsPage();
-        settings = new Settings();
+        settingsPage = new SettingsPage();
+        addAddressPage = new AddAddressPage();
+        addPhonePage = new AddPhonePage();
+        addCarPage = new AddCarPage();
     }
 
     @AfterMethod

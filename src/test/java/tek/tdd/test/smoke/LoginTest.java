@@ -35,8 +35,8 @@ public class LoginTest extends UIBaseClass {
         Assert.assertTrue(isElementDisplayed(primaryAccountPage.dashboardLink), "Dashboard link should displayed");
         Assert.assertTrue(isElementDisplayed(primaryAccountPage.requestQuoteLink), "Request Quote link should displayed");
         Assert.assertTrue(isElementDisplayed(primaryAccountPage.plansLink), "Plans link should displayed");
-        Assert.assertTrue(isElementDisplayed(primaryAccountPage.paymentsLink), "Payments link link should displayed");
-        Assert.assertTrue(isElementDisplayed(primaryAccountPage.settingLink), "Settings link link should displayed");
+        Assert.assertTrue(isElementDisplayed(primaryAccountPage.paymentsLink), "Payments link should displayed");
+        Assert.assertTrue(isElementDisplayed(primaryAccountPage.settingLink), "Settings link should displayed");
         extentInfo("Login to Primary account and validate links");
     }
 

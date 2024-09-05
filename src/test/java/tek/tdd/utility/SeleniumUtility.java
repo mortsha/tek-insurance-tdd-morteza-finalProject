@@ -3,6 +3,7 @@ package tek.tdd.utility;
 import com.aventstack.extentreports.service.ExtentTestManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -23,6 +24,10 @@ public class SeleniumUtility extends BaseSetup {
         return getWait().until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    private WebElement waitToBeClickable(By locator) {
+        return getWait().until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
     private WebElement waitToBeVisible(WebElement element) {
         return getWait().until(ExpectedConditions.visibilityOf(element));
     }
@@ -34,6 +39,11 @@ public class SeleniumUtility extends BaseSetup {
     public void clickOnElement(WebElement element) {
         LOGGER.debug("Clicking on element {} ", element);
         waitToBeClickable(element).click();
+    }
+
+    public void clickOnElement(By locator) {
+        LOGGER.debug("Clicking on locator {} ", locator);
+        waitToBeClickable(locator).click();
     }
 
     public String getElementText(WebElement element) {
@@ -84,5 +94,9 @@ public class SeleniumUtility extends BaseSetup {
         WebElement targetElement = waitToBeClickable(element);
         Select select = new Select(targetElement);
         select.selectByValue(value);
+    }
+
+    public String getAttributeValue(WebElement element) {
+        return waitToBeVisible(element).getAttribute("data-status");
     }
 }
