@@ -22,15 +22,17 @@ public class JavaUtilities {
     }
 
     public static String getPrefix() {
-        return faker.name().prefix();
+        String[] prefix = {"Mr.", "Mrs.", "Ms."};
+        return prefix[faker.random().nextInt(prefix.length)];
     }
 
     public static String getGender() {
-        return faker.demographic().sex();
+        String[] gender = {"Male", "Female", "Other"};
+        return gender[faker.random().nextInt(gender.length)];
     }
 
     public static String getMaritalStatus() {
-        String[] statuses = {"Single", "Married", "Widow", "Widower"};
+        String[] statuses = {"Single", "Married", "Widow", "Widower", "Divorced"};
         return statuses[faker.random().nextInt(statuses.length)];
     }
 
@@ -118,9 +120,9 @@ public class JavaUtilities {
     }
 
     public static void main(String[] args) {
-        System.out.println(getFirstName());
-        System.out.println(getLastName());
-        System.out.println(getPrefix());
+        System.out.println("FirstName: " + getFirstName());
+        System.out.println("Last name:" + getLastName());
+        System.out.println("Prefix: " + getPrefix());
         System.out.println(getGender());
         System.out.println("Marital Status: " + getMaritalStatus());
         System.out.println(getEmploymentStatus());

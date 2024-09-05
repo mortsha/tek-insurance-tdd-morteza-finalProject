@@ -64,7 +64,7 @@ public class CreateAccountTest extends UIBaseClass {
         emailToUse = JavaUtilities.getRandomEmail(fullName);
         String employmentStatus = JavaUtilities.getEmploymentStatus();
         String gender = JavaUtilities.getGender();
-        String maritalStatus = "Single";
+        String maritalStatus = JavaUtilities.getMaritalStatus();
         String prefix = JavaUtilities.getPrefix();
         String dob = JavaUtilities.getDOB();
 
