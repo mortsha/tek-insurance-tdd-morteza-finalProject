@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Tek Insurance App TestNG framework">
+    <test name="Smoke Tests">
+        <packages>
+            <package name="tek.tdd.test.smoke"></package>
+        </packages>
+        
+    </test>
+    
+    
+</suite>
