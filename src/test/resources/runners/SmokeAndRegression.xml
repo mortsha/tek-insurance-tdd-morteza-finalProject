@@ -2,8 +2,8 @@
 <suite name="Tek Insurance App TestNG framework">
     <test name="Regression Tests">
         <packages>
-            <package name="tek.tdd.test.regression"></package>
-            <package name="tek.tdd.test.smoke"></package>
+            <package name="tek.tdd.test.regression"/>
+            <package name="tek.tdd.test.smoke"/>
         </packages>
     </test>
 </suite>
