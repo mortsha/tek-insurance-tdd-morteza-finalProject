@@ -1,6 +1,5 @@
 package tek.tdd.test.smoke;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tek.tdd.base.UIBaseClass;
@@ -35,12 +34,9 @@ public class PrimaryAccountAddInformationTest extends UIBaseClass {
         clickOnElement(addAddressPage.submitButton);
         extentInfo("Adding Address to account");
 
-//        String xpath = "//p[text()='" + addressLine + "']//parent::div//parent::div//preceding-sibling::div/button";
-//        clickOnElement(By.xpath(xpath));
-//        extentInfo("deleting Phone from account");
+
     }
 
-    //button[@aria-label='delete car']
     @Test(testName = "Primary Account - Add Phone")
     public void loginWithPrimaryAccountAddPhone() {
         loginToPrimaryAccountNavigateToSettings();
@@ -55,13 +51,7 @@ public class PrimaryAccountAddInformationTest extends UIBaseClass {
         clickOnElement(addAddressPage.submitButton);
         extentInfo("Adding Phone to account");
 
-//        String phoneNumberFormatted = JavaUtilities.phoneNumberFormatter(phoneNumber);
-//        String xpath = "//p[text()='" + phoneNumberFormatted + "']//parent::div//parent::div//preceding-sibling::div/button";
-//        clickOnElement(By.xpath(xpath));
-//        clickOnElement(addAddressPage.confirmButton);
-//        Assert.assertTrue(isElementDisplayed(addPhonePage.deletePhoneMessage), "Delete toast message should display");
-//        Assert.assertTrue(Boolean.parseBoolean(getAttributeValue(addPhonePage.deletePhoneMessage)), "Success Status should be true");
-//        extentInfo("deleting Phone from account");
+
 
     }
 
@@ -79,8 +69,6 @@ public class PrimaryAccountAddInformationTest extends UIBaseClass {
         clickOnElement(addAddressPage.submitButton);
         extentInfo("Adding Car to account");
 
-//        String xpath = "//p[text()='" + carMake + "']//parent::div//parent::div//preceding-sibling::div/button";
-//        clickOnElement(By.xpath(xpath));
-//        extentInfo("deleting car from account");
+
     }
 }
