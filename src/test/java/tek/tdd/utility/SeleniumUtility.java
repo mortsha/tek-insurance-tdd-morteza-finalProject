@@ -68,7 +68,8 @@ public class SeleniumUtility extends BaseSetup {
         try {
             Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
-            LOGGER.error("Error while wait time used " + e.getMessage());
+            LOGGER.error("Interrupted during sleep: " + e.getMessage());
+            Thread.currentThread().interrupt();
         }
 
     }
