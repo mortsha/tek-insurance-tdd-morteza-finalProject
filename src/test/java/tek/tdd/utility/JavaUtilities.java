@@ -119,29 +119,6 @@ public class JavaUtilities {
         return String.format("(%s) %s-%s", phoneNumber.substring(0, 3), phoneNumber.substring(3, 6), phoneNumber.substring(6));
     }
 
-    public static void main(String[] args) {
-        System.out.println("FirstName: " + getFirstName());
-        System.out.println("Last name:" + getLastName());
-        System.out.println("Prefix: " + getPrefix());
-        System.out.println(getGender());
-        System.out.println("Marital Status: " + getMaritalStatus());
-        System.out.println(getEmploymentStatus());
-        System.out.println(getDOB());
-        System.out.println(getAddressType());
-        System.out.println(getAddressLine());
-        System.out.println("City: " + getCity());
-        System.out.println("State: " + getState());
-        System.out.println("Zip Code: " + getPostalCode());
-        System.out.println("Phone Type: " + getPhoneType());
-        System.out.println("Phone Random Number: " + getRandomPhoneNumber());
-        System.out.println("Extension: " + getExtension());
-        System.out.println("phone Time: " + getPhoneTime());
-        System.out.println("Make: " + getMake());
-        System.out.println("Model: " + getModel());
-        System.out.println("Car Year: " + getCarYear());
-        System.out.println("License Plate: " + getLicensePlate());
-
-    }
 
     public static String getRandomEmail(String name) {
         int randomNumber = (int) (Math.random() * 10000);

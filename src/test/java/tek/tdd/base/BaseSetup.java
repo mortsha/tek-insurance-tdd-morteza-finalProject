@@ -30,8 +30,8 @@ public class BaseSetup {
             properties = new Properties();
             properties.load(inputStream);
         } catch (IOException e) {
-            LOGGER.debug("Error reading config file, " + e);
-            throw new RuntimeException("Something wrong with config file, " + e);
+            LOGGER.debug("Error reading config file {} ", e.getMessage());
+            throw new RuntimeException("Something wrong with config file, " + e.getMessage());
         }
 
     }
@@ -43,7 +43,7 @@ public class BaseSetup {
     public void setupBrowser() {
         String browserType = properties.getProperty("ui.browser");
         boolean isHeadless = Boolean.parseBoolean(properties.getProperty("ui.browser.headless"));
-        LOGGER.debug("Running on browser {} and isHeadless {}" , browserType, isHeadless);
+        LOGGER.debug("Running on browser {} and isHeadless {}", browserType, isHeadless);
 
         if (browserType.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
@@ -62,7 +62,7 @@ public class BaseSetup {
 
 
         String url = properties.getProperty("ui.url");
-        LOGGER.debug("Navigating to url {} ",url);
+        LOGGER.debug("Navigating to url {} ", url);
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WAIT_TIME_IN_SECONDS));
         driver.manage().window().maximize();

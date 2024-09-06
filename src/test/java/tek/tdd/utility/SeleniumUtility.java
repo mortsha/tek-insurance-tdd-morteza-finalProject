@@ -96,7 +96,8 @@ public class SeleniumUtility extends BaseSetup {
         select.selectByValue(value);
     }
 
-    public String getAttributeValue(WebElement element) {
-        return waitToBeVisible(element).getAttribute("data-status");
+    public String getAttributeValue(WebElement element,String attribute) {
+        LOGGER.info("Getting attribute of element {} ",element);
+        return waitToBeVisible(element).getAttribute(attribute);
     }
 }
